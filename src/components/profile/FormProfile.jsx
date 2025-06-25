@@ -18,7 +18,7 @@ const FormularioPerfil = () => {
     }
 
     try {
-      const token = sessionStorage.getItem("token");
+      const token = localStorage.getItem("token");
       const url = `${import.meta.env.VITE_BACKEND_URL}/actualizar-superadmin`;
       const response = await fetch(url, {
         method: "PUT",
