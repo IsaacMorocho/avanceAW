@@ -18,7 +18,7 @@ const CardPassword = () => {
 
     try {
       setCargando(true);
-      const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+      const token = localStorage.getItem("token") || localStorage.getItem("token");
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/superadmin/actualizar-password`, {
         method: "PUT",
         headers: {
