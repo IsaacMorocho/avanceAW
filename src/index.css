@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+button {
+  font-family: 'Lexend', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
