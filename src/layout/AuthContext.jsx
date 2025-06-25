@@ -3,9 +3,9 @@ import { createContext, useState, useEffect } from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(() => sessionStorage.getItem('token') || '');
+  const [token, setToken] = useState(() => localStorage.getItem('token') || '');
   const [user, setUser] = useState(() => {
-    const savedUser = sessionStorage.getItem('user');
+    const savedUser = localStorage.getItem('user');
     return savedUser ? JSON.parse(savedUser) : null;
   });
   const [isAuthenticated, setIsAuthenticated] = useState(!!token);
@@ -16,16 +16,16 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = (newToken, userData) => {
-    sessionStorage.setItem('token', newToken);
-    sessionStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem('token', newToken);
+    localStorage.setItem('user', JSON.stringify(userData));
     setToken(newToken);
     setUser(userData);
     setIsAuthenticated(true);
   };
 
   const logout = () => {
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setToken('');
     setUser(null);
     setIsAuthenticated(false);
