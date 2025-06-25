@@ -4,7 +4,7 @@ export const CardProfile = () => {
   const [perfil, setPerfil] = useState(null);
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (!token) return;
 
     const fetchPerfil = async () => {
