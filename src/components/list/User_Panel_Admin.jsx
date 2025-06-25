@@ -11,7 +11,7 @@ const UserCRUD = () => {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState({ type: null, visible: false, user: null });
 
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   useEffect(() => { fetchUsers(); }, []);
   //Ver estudiantes
